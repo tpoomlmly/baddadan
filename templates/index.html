@@ -1,1 +1,32 @@
-<h1>It has been {{ days }} days since the last Baddadan.</h1>
+<html>
+<head>
+    <style>
+        body {
+            height: 100vh;
+            background-color: #222;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0px;
+        }
+        h1 {
+            font-family: sans-serif;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+        .days {
+            font-family: monospace;
+            border: 2px dashed;
+            padding: 0.2rem 0.4rem;
+        }
+        a {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>It has been <span class="days">{{ days }}</span> days since the last <a href="https://youtu.be/rkjNL4dX-U4">Baddadan</a>.</h1>
+</body>
+</html>
