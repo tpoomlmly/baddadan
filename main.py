@@ -1,7 +1,7 @@
 import datetime
 import firebase_admin
 from firebase_admin import firestore
-from flask import Flask, render_template
+from flask import Flask, redirect, render_template
 
 
 app = Flask(__name__)
@@ -22,6 +22,14 @@ def index():
     last_baddadan_time = baddadan_document["timestamp"]
     days_since_last_baddadan = (datetime.datetime.now().timestamp() - last_baddadan_time.timestamp()) / 86400
     return render_template("index.html", days=f"{days_since_last_baddadan:.1f}")
+
+
+@app.route("/baddadan")  # Honour-based system
+def new_baddadan():
+    occurrences_collection.add({
+        "timestamp": datetime.datetime.now()
+    })
+    return redirect("/", code=303)
 
 
 if __name__ == "__main__":
